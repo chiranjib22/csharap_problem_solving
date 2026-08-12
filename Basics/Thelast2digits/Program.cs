@@ -4,13 +4,12 @@
 
 long[] numbers = Console.ReadLine()!.Split().Select(long.Parse).ToArray();
 
-long result = numbers[0] * numbers[1] * numbers[2] * numbers[3];
+long ans = 1;
 
-Console.WriteLine(result);
+ans = (1 * (numbers[0] % 100)) % 100;
+ans = (ans * (numbers[1] % 100)) % 100;
+ans = (ans * (numbers[2] % 100)) % 100;
+ans = (ans * (numbers[3] % 100)) % 100;
 
-string digit = Convert.ToString(result % 10);
-result = result / 10;
-digit = digit + Convert.ToString(10 * (result % 10));
-
-Console.WriteLine(digit);
-
+if (ans < 10) Console.WriteLine($"0{ans}");
+else Console.WriteLine(ans);
